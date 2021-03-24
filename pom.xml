@@ -3,8 +3,8 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.ojalgo</groupId>
-    <version>3.0.0</version>
     <artifactId>ojalgo-unsafe</artifactId>
+    <version>3.0.0</version>
     <name>ojAlgo-unsafe</name>
     <description>ojAlgo Unsafe extensions</description>
     <url>http://ojalgo.org</url>
@@ -24,7 +24,7 @@
     <licenses>
         <license>
             <name>MIT</name>
-            <url>https://github.com/optimatika/ojAlgo-unsafe/blob/master/LICENSE</url>
+            <url>https://github.com/optimatika/ojAlgo-unsafe/blob/main/LICENSE</url>
         </license>
     </licenses>
     <scm>
