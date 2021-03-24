@@ -3,9 +3,35 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.ojalgo</groupId>
-    <version>2.47.3</version>
+    <version>3.0.0</version>
     <artifactId>ojalgo-unsafe</artifactId>
     <name>ojAlgo-unsafe</name>
+    <description>ojAlgo Unsafe extensions</description>
+    <url>http://ojalgo.org</url>
+    <organization>
+        <name>Optimatika</name>
+        <url>http://optimatika.se</url>
+    </organization>
+    <developers>
+        <developer>
+            <id>apete</id>
+            <name>Anders Peterson</name>
+            <email>apete@optimatika.se</email>
+            <organization>Optimatika</organization>
+            <organizationUrl>http://optimatika.se</organizationUrl>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://github.com/optimatika/ojAlgo-unsafe/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/optimatika/ojAlgo-unsafe</url>
+        <connection>https://github.com/optimatika/ojAlgo-unsafe.git</connection>
+        <developerConnection>git@github.com:optimatika/ojAlgo-unsafe.git</developerConnection>
+    </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -20,7 +46,7 @@
         <dependency>
             <groupId>org.ojalgo</groupId>
             <artifactId>ojalgo</artifactId>
-            <version>48.3.1</version>
+            <version>48.4.1</version>
             <classifier>tests</classifier>
             <type>test-jar</type>
             <scope>test</scope>
@@ -44,5 +70,59 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
